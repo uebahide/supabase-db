@@ -26,8 +26,8 @@ uebahide のアプリが共有している Supabase（プロジェクト名: uch
 1. `templates/new_app.sql` をコピーし、`myapp` をアプリ名に置き換えて `supabase/migrations/<YYYYMMDDHHMMSS>_<アプリ名>_init.sql` として保存します。
 2. `supabase/config.toml` の `schemas` にアプリ名を足します。
 3. PR を出します。Check migrations が通ったらマージすると、本番に適用されます。
-4. Supabase の画面で次の2つを設定します。
-   - Settings > Data API > Exposed schemas にアプリ名を追加
+4. 本番に反映されたら、Supabase の画面で次の2つを設定します。
+   - Integrations > Data API > Settings > Exposed schemas でアプリ名にチェック（スキーマができてからリストに出ます）
    - Authentication > URL Configuration > Redirect URLs にアプリの URL を追加
 5. アプリ側は uchinooshi-app の `src/lib/supabase/` をコピーし、`env.ts` の `supabaseSchema` をアプリ名にします。Vercel には `NEXT_PUBLIC_SUPABASE_URL` と `NEXT_PUBLIC_SUPABASE_ANON_KEY` を入れます（全アプリ同じ値）。
 
@@ -49,6 +49,6 @@ GitHub の Settings > Secrets and variables > Actions に次の3つを登録す�
 
 `20261020000100_oshi_move_to_schema.sql` が本番に入った瞬間から、古い推しノートはデータを読めなくなります。次の順で続けて行ってください。
 
-1. Exposed schemas に `core`、`oshi`、`recipe` を追加
-2. このリポジトリの PR をマージ（Deploy migrations が緑になるのを確認）
+1. このリポジトリの PR をマージ（Deploy migrations が緑になるのを確認。ここでスキーマができる）
+2. Supabase の Integrations > Data API > Settings > Exposed schemas で `core`、`oshi`、`recipe` にチェックを入れて Save（スキーマができるまではリストに出ない）
 3. uchinooshi-app の「共有DBの oshi スキーマを使うようにする」PR をマージ（Vercel が再デプロイ）

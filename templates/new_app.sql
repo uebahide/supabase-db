@@ -22,5 +22,5 @@ grant select, insert, update, delete on myapp.items to authenticated;
 create trigger items_set_updated_at before update on myapp.items
   for each row execute function core.set_updated_at();
 
--- 忘れずに: Supabase の Settings > Data API > Exposed schemas に myapp を追加
+-- 忘れずに: 本番反映後に Integrations > Data API > Settings > Exposed schemas で myapp にチェック
 --          Authentication > URL Configuration > Redirect URLs にアプリのURLを追加
