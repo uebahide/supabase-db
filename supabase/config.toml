@@ -1,0 +1,6 @@
+# Supabase CLI の設定。本番プロジェクト（uchinooshi）とは GitHub Actions で `supabase link` してつなぐ。
+project_id = "supabase-db"
+
+[api]
+# Data API で公開するスキーマ。本番は Supabase の画面（Settings > Data API > Exposed schemas）でも同じものを設定する。
+schemas = ["public", "graphql_public", "core", "oshi", "recipe"]
