@@ -35,13 +35,9 @@ uebahide のアプリが共有している Supabase（プロジェクト名: uch
 
 ## 本番への適用（初回の設定）
 
-GitHub の Settings > Secrets and variables > Actions に次の3つを登録すると、main へのマージで自動適用されます。
+GitHub の Settings > Secrets and variables > Actions に `SUPABASE_DB_URL` を1つ登録すると、main へのマージで自動適用されます。
 
-| 名前 | 値 |
-| --- | --- |
-| `SUPABASE_ACCESS_TOKEN` | Supabase の Account > Access Tokens で作ったトークン |
-| `SUPABASE_DB_PASSWORD` | プロジェクトのデータベースパスワード |
-| `SUPABASE_PROJECT_ID` | プロジェクトの Reference ID（URL の `https://<ここ>.supabase.co`） |
+値は Supabase のプロジェクト画面上部の **Connect** > **Session pooler** に出る接続文字列（`postgresql://postgres.<プロジェクトID>:[YOUR-PASSWORD]@aws-…pooler.supabase.com:5432/postgres`）で、`[YOUR-PASSWORD]` をデータベースのパスワードに置き換えたものです。パスワードに `@` `:` `/` `#` などの記号が入っている場合はURLエンコードが必要なので、英数字だけのパスワードにリセットするのが簡単です。
 
 `20261001000000_oshi_baseline.sql` は、以前 SQL Editor で手動適用していた推しノートのテーブルです。何度流しても同じ結果になるように書いてあるので、本番にそのまま流して問題ありません。
 
