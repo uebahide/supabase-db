@@ -9,7 +9,7 @@ uebahide のアプリが共有している Supabase（プロジェクト名: uch
 | --- | --- | --- |
 | `core` | 全アプリ共通（プロフィール、アプリ一覧、利用者） | このリポジトリ |
 | `oshi` | 推しノート | [uchinooshi-app](https://github.com/uebahide/uchinooshi-app) |
-| `recipe` | レシピDB | recipe-app（これから） |
+| `recipe` | レシピDB | [recipe-db](https://github.com/uebahide/recipe-db) |
 
 ## ルール
 
